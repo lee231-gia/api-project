@@ -1,5 +1,6 @@
 <?php
     require 'db.php';
+   
     $method = $_SERVER['REQUEST_METHOD'];
     //echo 'method: ' . $_POST['_method'];
     
@@ -43,8 +44,16 @@
 
             break;
         case 'PUT':
-            // $input = json_decode(file_get_contents("php://input"));
-            // var_dump($input);
+            header("Content-Type: application/json");
+            $raw = file_get_contents("php://input");
+            $input = json_decode($raw, true);
+            var_dump($input);
+
+            $name  = $_POST['product_name'];
+            $price = $_POST['price'];
+
+            echo $name;
+
             echo 'Under construction';
             break;
         case 'DELETE':
