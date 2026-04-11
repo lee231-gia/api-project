@@ -45,7 +45,7 @@
         case 'PUT':
             // $input = json_decode(file_get_contents("php://input"));
             // var_dump($input);
-            echo 'Under maintenance';
+            echo 'Under construction';
             break;
         case 'DELETE':
             $id = $_GET['id'];
