@@ -1,6 +1,17 @@
 <?php
     require 'db.php';
     $method = $_SERVER['REQUEST_METHOD'];
+    //echo 'method: ' . $_POST['_method'];
+    
+    if(isset($_POST['_method']) && ($_POST['_method'] === 'PUT' || $_POST['_method'] === 'PATCH')) {
+        $id    = $_POST['id'];
+        $name  = $_POST['product_name'];
+        $price = $_POST['price'];
+        $conn->query("UPDATE products SET product_name='$name', price='$price' WHERE id=$id");
+        echo json_encode(["message" => "Product updated"]);
+        exit;
+    }
+    
 
     switch ($method) {
         case 'GET':
@@ -19,9 +30,6 @@
             break;
         case 'POST':
             //$input = json_decode(file_get_contents("php://input"), true);
-          
-            //echo $input;
-
             $name  = $_POST['product_name'];
             $price = $_POST['price'];
             
@@ -30,16 +38,7 @@
             echo json_encode(["message" => "Product created"]);
 
             break;
-        case 'PUT':
-            $input = json_decode(file_get_contents("php://input"), true);
-            $id    = $input['id'];
-            $name  = $input['product_name'];
-            $price = $input['price'];
-            $conn->query("UPDATE products SET product_name='$name', price='$price' WHERE id=$id");
-
-            echo json_encode(["message" => "Product updated"]);
-
-            break;
+      
         case 'DELETE':
             $id = $_GET['id'];
             $conn->query("DELETE FROM products WHERE id=$id");
