@@ -48,7 +48,7 @@ A **REST API** is a type of API that:
 | ------ | --------------- |
 | GET    | Retrieve data   |
 | POST   | Create new data |
-| PUT    | Update data     |
+| PUT    | Update data  (POST)   |
 | DELETE | Remove data     |
 
 ---

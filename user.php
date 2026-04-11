@@ -1,11 +1,11 @@
 <?php
     require 'db.php';
 
-    $table = 'users';
-    $cols = ['username', 'name', 'password'];
+    // $table = 'users';
+    // $cols = ['username', 'name', 'password'];
     $method = $_SERVER['REQUEST_METHOD'];
 
-    
+
     
     if(isset($_POST['_method']) && ($_POST['_method'] === 'PUT' || $_POST['_method'] === 'PATCH')) {
         $id    = $_POST['id'];
