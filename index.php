@@ -6,8 +6,9 @@
 
     if (strpos($request, '/api/products') !== false) {
         require 'products.php';
+        
     } else {
         echo json_encode(["message" => "Endpoint not found"]);
     }
-    
+
 ?>
