@@ -2,7 +2,6 @@
     require 'db.php';
     $method = $_SERVER['REQUEST_METHOD'];
 
-    //POST, GET, PUT, DELETE
     switch ($method) { // /api/products?id=1
         case 'GET':
             if (isset($_GET['id'])) {
