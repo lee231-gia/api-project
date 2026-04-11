@@ -3,9 +3,9 @@
 
     $table = 'users';
     $cols = ['username', 'name', 'password'];
-    
     $method = $_SERVER['REQUEST_METHOD'];
-    //echo 'method: ' . $_POST['_method'];
+
+    
     
     if(isset($_POST['_method']) && ($_POST['_method'] === 'PUT' || $_POST['_method'] === 'PATCH')) {
         $id    = $_POST['id'];
