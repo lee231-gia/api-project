@@ -69,7 +69,7 @@ DELETE /api/products?id=1
 
 ```sql
 CREATE DATABASE exampledb;
-use exampledb;
+USE exampledb;
 
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
