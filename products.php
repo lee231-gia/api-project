@@ -43,10 +43,9 @@
 
             break;
         case 'PUT':
-            $input = json_decode(file_get_contents("php://input"));
-            var_dump($input);
-
-            echo 'Put request received';
+            // $input = json_decode(file_get_contents("php://input"));
+            // var_dump($input);
+            echo 'Under maintenance';
             break;
         case 'DELETE':
             $id = $_GET['id'];
