@@ -68,6 +68,9 @@ DELETE /api/products?id=1
 ## 🗄️ Database Setup (MySQL)
 
 ```sql
+CREATE DATABASE exampledb;
+use exampledb;
+
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(255) NOT NULL,
