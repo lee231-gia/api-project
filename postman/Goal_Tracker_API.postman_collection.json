@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "9d7b5fc9-0ed7-4c8c-9d28-goal-tracker",
+    "name": "Goal Tracker CRUD API",
+    "description": "Postman requests for the native PHP + MySQL Goal Tracker CRUD API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "goal_id",
+      "value": "1",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/health",
+          "host": ["{{base_url}}"],
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "List Goals",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/goals",
+          "host": ["{{base_url}}"],
+          "path": ["api", "goals"]
+        }
+      }
+    },
+    {
+      "name": "Filter Goals",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/goals?category=School&term=Short%20Term&status=In%20Progress&search=php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "goals"],
+          "query": [
+            {
+              "key": "category",
+              "value": "School"
+            },
+            {
+              "key": "term",
+              "value": "Short Term"
+            },
+            {
+              "key": "status",
+              "value": "In Progress"
+            },
+            {
+              "key": "search",
+              "value": "php"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Goal By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/goals?id={{goal_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "goals"],
+          "query": [
+            {
+              "key": "id",
+              "value": "{{goal_id}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Goal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Finish CRUD API project\",\n  \"category\": \"School\",\n  \"term\": \"Short Term\",\n  \"status\": \"In Progress\",\n  \"due_date\": \"2026-06-10\",\n  \"notes\": \"Practice explaining every file before the virtual defense.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/goals",
+          "host": ["{{base_url}}"],
+          "path": ["api", "goals"]
+        }
+      }
+    },
+    {
+      "name": "Update Goal",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Finish CRUD API project\",\n  \"category\": \"School\",\n  \"term\": \"Short Term\",\n  \"status\": \"Completed\",\n  \"due_date\": \"2026-06-10\",\n  \"notes\": \"Update request changes the row with the id in the query string.\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/goals?id={{goal_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "goals"],
+          "query": [
+            {
+              "key": "id",
+              "value": "{{goal_id}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Goal",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/goals?id={{goal_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "goals"],
+          "query": [
+            {
+              "key": "id",
+              "value": "{{goal_id}}"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
